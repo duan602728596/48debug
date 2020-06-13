@@ -1,11 +1,13 @@
 {
   "scripts": {
     "dev": "go run main.go",
-    "build": "go build -o build/FortyEight_Debug main.go "
+    "build:macos": "rimraf build && go build -o build/48debug main.go",
+    "build:window": "rimraf build && CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o build/48debug.exe main.go"
   },
   "devDependencies": {
     "commitizen": "^4.1.2",
-    "cz-conventional-changelog": "^3.2.0"
+    "cz-conventional-changelog": "^3.2.0",
+    "rimraf": "^3.0.2"
   },
   "config": {
     "commitizen": {
